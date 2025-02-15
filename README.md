@@ -44,6 +44,8 @@ sudo pacman -S pamac
 ## 7. Use Timeshift to backup system 
 ```bash
 yay -Sy timeshift
+systemctl enable cronie.service
+systemctl start cronie.service
 ```
 
 ## 8. Setup firewall
