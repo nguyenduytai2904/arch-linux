@@ -6,6 +6,17 @@ sudo nano /etc/pacman.conf
 ```
 Uncomment Color to make the output colorful. If you want more fun, you can also add IloveCandy in the config file right after the color option.
 
+## Install plocate to search faster than find
+```bash
+yay -S plocate
+sudo updatedb
+```
+## Trim your SSD(SSD/NVMe)
+```bash
+sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer
+systemctl status fstrim.timer
+```
 
 ##  Automatic cleaning the package cache
 ```bash
