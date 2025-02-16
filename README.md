@@ -70,6 +70,13 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo pacman -S pamac 
 ```
 
+## Install plocate to search file fater than find 
+```bash
+yay -S plocate
+updatedb
+```
+
+
 ## Use Timeshift to backup system 
 ```bash
 yay -Sy timeshift
