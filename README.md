@@ -11,6 +11,62 @@ Uncomment Color to make the output colorful. If you want more fun, you can also 
 yay -S plocate
 sudo updatedb
 ```
+can make script auto update database for locate
+create script in somewhere filename.sh
+```bash
+#!/bin/bash
+echo "Updating locate database..."
+sudo updatedb
+echo "Locate database updated at $(date)" | sudo tee /var/log/update-locate.log
+sudo chmod +x /path/to/filename.sh
+```
+create file .service and .timer to auto run with system
+
+/etc/systemd/system/filename.service
+
+in .service file
+```bash
+[Unit]
+Description=Update locate database
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/update-locate.sh
+Type=oneshot
+User=root
+
+[Install]
+WantedBy=multi-user.target 
+```
+
+in .timer file
+```bash
+[Unit]
+Description=Run update-locate.service periodically
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
+```
+run and check
+```bash
+sudo systemctl enable update-locate.timer
+sudo systemctl start update-locate.timer
+systemctl list-timers | grep update-locate
+
+```
+
+## Use Logrotate to auto remove log files enough size
+```bash
+yay -S logrotate
+systemctl enable logrotate.timer
+systemctl start logrotate.timer
+```
+
 ## Trim your SSD(SSD/NVMe)
 ```bash
 sudo systemctl enable fstrim.timer
