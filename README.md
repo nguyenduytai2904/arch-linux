@@ -1,5 +1,6 @@
 # After installing arch linux
 
+Check link: [https://linuxiac.com/arch-linux-install/](https://linuxiac.com/arch-linux-install/)
 ## Configure pacman
 ```bash
 sudo nano /etc/pacman.conf
