@@ -1,6 +1,6 @@
 # After installing arch linux
 
-Check link: [https://linuxiac.com/arch-linux-install/](https://linuxiac.com/arch-linux-install/)
+Check link: [https://linuxiac.com/arch-linux-install/](https://wiki.archlinux.org/title/Installation_guide)
 
 ## Update your system
 ```
